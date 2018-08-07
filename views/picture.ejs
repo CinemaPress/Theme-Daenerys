@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="<%- page.language %>" prefix="og: http://ogp.me/ns# video: http://ogp.me/ns/video# ya: http://webmaster.yandex.ru/vocabularies/">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body class="watch watch_united-page">
+
+<% include includes/header.ejs %>
+
+<div class="page-wrapper">
+    <div class="content-main">
+        <section class="top-wrapper">
+
+            <% if (typeof page.adv === 'object' && page.adv.top) { %>
+            <div style="margin: 10px; text-align: center;">
+                <%- page.adv.top %>
+            </div>
+            <% } %>
+
+            <ul class="breadcrumbs">
+                <li><a href="/">Главная</a></li>
+                <li><% if (movie.genre_url) { %><%- movie.genre_url %><% } else { %><%- movie.year_url %><% } %></li>
+                <li><%= movie.title %></li>
+            </ul>
+
+            <div class="title-block">
+                <h1>Кадры <%= movie.title %></h1>
+                <% if (movie.title_en) { %>
+                <small><%= movie.title_en %></small>
+                <% } %>
+            </div>
+
+            <meta content="false">
+            <div class="properties">
+                <%- movie.year_url %>
+                <%- movie.country_url %>
+                <span><%- movie.genres_url %></span>
+            </div>
+
+            <div class="inner-nav-wrapper js-watch-inner-nav">
+                <div class="content-body">
+                    <ul class="inner-nav js-inner-nav">
+
+                        <li>
+                            <a href="<%- movie.url %>">Информация</a>
+                        </li>
+
+                        <% if (page.urls.movies.trailer) { %>
+                        <li>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a>
+                        </li>
+                        <% } %>
+
+                        <% if (page.urls.movies.online) { %>
+                        <li>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a>
+                        </li>
+                        <% } %>
+
+                        <% if (page.urls.movies.download) { %>
+                        <li>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.download %>">Скачать</a>
+                        </li>
+                        <% } %>
+
+                        <% if (page.urls.movies.picture) { %>
+                        <li class="active js-active">
+                            <a href="<%- movie.url %>/<%- page.urls.movies.picture %>">Кадры</a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="content-body">
+
+            <% if (typeof page.adv === 'object' && page.adv.over) { %>
+            <div class="full-right-video1" style="text-align: center;">
+                <%- page.adv.over %>
+            </div>
+            <% } %>
+
+            <section class="cols-wrapper">
+                <aside class="col-extra">
+                    <figure class="poster js-poster">
+                        <img src="<%- movie.poster %>" alt="<%= movie.title %> (<%- movie.year %>) смотреть онлайн бесплатно в хорошем качестве, постер" title="<%= movie.title %> (<%- movie.year %>)">
+                    </figure>
+
+                    <% if (typeof page.adv === 'object' && page.adv.left) { %>
+                    <div style="margin: 10px; text-align: center;">
+                        <%- page.adv.left %>
+                    </div>
+                    <% } %>
+                </aside>
+                <article class="col-main">
+                    <% if (page.player) { %>
+                    <div class="player-block">
+                        <div class="player-area">
+                            <%- page.player %>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <% if (typeof page.adv === 'object' && page.adv.under) { %>
+                    <div class="full-right-video1" style="text-align: center;">
+                        <%- page.adv.under %>
+                    </div>
+                    <% } %>
+
+                    <div style="padding-top: 32px;">
+                        <div class="ratings-block">
+                            <dl class="numeric-rating">
+                                <% if (movie.vote) { %>
+                                <dt>Общий рейтинг</dt>
+                                <dd><%- movie.rating/10 %></dd>
+                                <% } %>
+                                <% if (movie.kp_vote) { %>
+                                <dt>КиноПоиск</dt>
+                                <dd><%- movie.kp_rating/10 %></dd>
+                                <% } %>
+                                <% if (movie.imdb_vote) { %>
+                                <dt>IMDb</dt>
+                                <dd><%- movie.imdb_rating/10 %></dd>
+                                <% } %>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <dl class="coupled persons compact">
+                        <div class="episodesListBlock" style="display: none;">
+                            <h3><%= movie.title %> новые серии</h3>
+                            <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
+                        </div>
+
+                        <% if (movie.quality) { %>
+                        <dt>Качество</dt>
+                        <dd><%- movie.quality %></dd>
+                        <% } %>
+                        <% if (movie.translate) { %>
+                        <dt>Перевод</dt>
+                        <dd><%- movie.translate %></dd>
+                        <% } %>
+                        <% if (movie.directors_url) { %>
+                        <dt>Режиссеры</dt>
+                        <dd><%- movie.directors_url %></dd>
+                        <% } %>
+                        <% if (movie.actors_url) { %>
+                        <dt>Актеры</dt>
+                        <dd><%- movie.actors_url %></dd>
+                        <% } %>
+                    </dl>
+                </article>
+            </section>
+
+            <% if (typeof movies === 'object') { var i = 0;
+                    for (var type in movies) {
+            if (movies.hasOwnProperty(type) && movies[type].length) {
+            movies[type].forEach(function (category) { i=i+1; %>
+
+            <section class="posters-block js-personal-recommendation">
+                <h2><span class="js-collection-header">
+                    <%- category.name %>
+                </span></h2>
+                <div class="carousel posters-large js-carousel">
+                    <div class="viewport">
+                        <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>" style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">
+                            <% if (category.movies.length) { %>
+
+                            <% category.movies.forEach(function (movie) { %>
+                            <li class="poster-badge poster-badge_subscription">
+                                <a href="<%- movie.url %>" class="item-content-wrapper">
+                                    <div class="image" data-caption="Смотреть бесплатно">
+                                        <img src="<%- movie.poster %>" alt="<%= movie.title %>">
+                                        <% if (movie.year) { %>
+                                        <span class="age-limit" data-value="<%- movie.year %>"></span>
+                                        <% } %>
+                                        <% if (movie.genre) { %>
+                                        <div class="badge"><div class="badge__content" data-badge-content="<%- movie.genre %>"></div></div>
+                                        <% } %>
+                                    </div>
+                                    <span class="title">
+                                    <%= movie.title %><% if (movie.season && movie.episode) { %> (<%- movie.season %> сезон <%- movie.episode %> серия)<% } %>
+                                    </span>
+                                </a>
+                            </li>
+                            <% }); %>
+
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="control-<%- i %>">
+                        <span class="control prev"></span>
+                        <span class="control next"></span>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded",function(){tns({items:5,container:".carousel-<%- i %>",nav:!1,autoplay:!1,autoplayButtonOutput:!1,loop:!0,controlsContainer:".control-<%- i %>",mouseDrag:!0})});
+                    </script>
+                </div>
+            </section>
+
+            <% }); } } } %>
+
+            <section class="cols-wrapper cols-wrapper_secondary">
+                <aside class="col-extra">
+                    <h2><a href="javascript:void(0)">Доступно на</a></h2>
+                    <ul class="platforms">
+                        <li class="android"><a href="javascript:void(0)">Android</a></li>
+                        <li class="ios"><a href="javascript:void(0)">iPhone / iPad</a></li>
+                        <li class="smarttv"><a href="javascript:void(0)">Smart TV</a></li>
+                    </ul>
+
+                    <% if (typeof contents === 'object' && contents.length) { %>
+                    <h2>
+                        <a href="/<%- page.urls.content %>?tag=Коллекция">Упоминания</a>
+                    </h2>
+                    <ul class="related-links">
+                        <% contents.forEach(function (content) { %>
+                        <li><a href="<%- content.url %>"><%= content.title %></a></li>
+                        <% }); %>
+                    </ul>
+                    <% } %>
+
+                    <% if (page.urls.movies.trailer) { %>
+                    <h2><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></h2>
+                    <ul class="gallery trailers-small">
+                        <li>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="item-content-wrapper js-trailers-link" style="background: url('<%- movie.poster %>'); background-size: cover;">
+                                <span class="image"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <% } %>
+
+                    <% if (typeof recent === 'object' && recent.length) { %>
+                    <h2>
+                        <a href="javascript:void(0)">Последние комментарии</a>
+                    </h2>
+                    <% recent.forEach(function (comment) { %>
+                    <div style="margin: 3px auto;">
+                        <div class="cinemapress-recent">
+                            <div class="cinemapress-recent-head">
+                                <% if (comment.avatar) { %>
+                                <div class="cinemapress-recent-head-avatar">
+                                    <img src="<%- comment.avatar %>" alt="<%- comment.user %>">
+                                </div>
+                                <% } %>
+                                <div class="cinemapress-recent-head-meta">
+                                    <div>
+                                        <a href="<%- comment.url %>"><%= comment.title %></a>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <%- comment.user %>
+                                        </span><span>
+                                            сказал(а)
+                                        </span><span>
+                                            <%- comment.date %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cinemapress-recent-comment">
+                                <%- comment.comment %>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                    <% } %>
+
+                    <% if (typeof soon === 'object' && soon.length) { %>
+                    <h2>
+                        <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up">Скоро премьеры</a>
+                    </h2>
+                    <ul class="related-links">
+                        <% soon.forEach(function (movie) { %>
+                        <li><a href="<%- movie.url %>"><%= movie.title %></a></li>
+                        <% }); %>
+                    </ul>
+                    <% } %>
+                </aside>
+                <article class="col-main">
+                    <% if (page.seo) { %>
+                    <div class="has-notice js-expand-block">
+                        <div class="expandable-content">
+                            <%- page.seo %>
+                        </div>
+                    </div>
+                    <% } %>
+
+                    <% if (page.comments) { %>
+                    <h2>Отзывы «<%- movie.title %>»</h2>
+                    <%- page.comments %>
+                    <% } %>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>
+
+<% include includes/footer.ejs %>
+
+</body>
+</html>

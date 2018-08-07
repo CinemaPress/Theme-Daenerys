@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="<%- page.language %>">
+<head>
+
+    <%- include includes/head.ejs %>
+
+</head>
+<body class="catalog">
+
+<%- include includes/header.ejs %>
+
+<div class="page-wrapper">
+    <div class="content-main">
+
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
+
+        <section class="top-wrapper light">
+            <ul class="breadcrumbs">
+                <li><a href="/">Главная</a></li>
+                <li><%= page.title %></li>
+            </ul>
+            <h1><%= page.title %></h1>
+        </section>
+
+        <div class="content-body">
+            <% if (typeof categories === 'object' && categories.length) { %>
+            <div style="clear: both"></div>
+            <% categories.forEach(function (content) { %>
+            <div style="float: left; width: 25%;">
+                <div style="margin: 0; padding: 10px">
+                    <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url(<%- content.image %>);">
+                        <div class="cinemapress-news-title">
+                            <%= content.title %>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+            <% } %>
+
+            <% if (page.seo) { %>
+            <div class="text-block-wrapper">
+                <div class="js-expand-block">
+                    <div class="expandable-content">
+                        <%- page.seo %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<% include includes/footer.ejs %>
+
+</body>
+</html>

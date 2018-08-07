@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="<%- page.language %>">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body class="start">
+
+<% include includes/header.ejs %>
+
+<div class="page-wrapper">
+
+    <% if (typeof slider === 'object' && slider.length) { %>
+
+    <div class="promo wide">
+        <div class="promo-content">
+            <div class="control-main">
+                <span class="control prev"></span> <span class="control next"></span>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-main">
+
+        <% slider.forEach(function (movie) { %>
+
+        <div class="promo wide">
+            <div class="promo-content">
+                <ul>
+                    <li class="active" style="background: url('<%- movie.picture_big %>') center center no-repeat; background-size: cover;">
+                        <div class="button-wrapper">
+                            <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link">Смотреть онлайн</a>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link">Смотреть трейлер</a>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button">Скачать фильм</a>
+                        </div>
+                        <% if (movie.year) { %>
+                        <span class="age-limit" data-value="<%- movie.year %>"></span>
+                        <% } %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <% }); %>
+
+    </div>
+
+    <% } %>
+
+    <div class="teaser-plate">
+        <div class="inner-container">
+            <span class="text">Смотри фильмы, сериалы и мультики без рекламы в Full HD</span>
+        </div>
+    </div>
+
+    <div class="content-main">
+
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
+        <div style="margin: 10px; text-align: center;">
+            <%- page.adv.top %>
+        </div>
+        <% } %>
+
+        <% if (typeof index === 'object') { var i = 0; for (var type in index) { if (index.hasOwnProperty(type)) { %>
+
+        <% if (index[type].length) { %>
+
+        <% index[type].forEach(function (category) { i = i + 1; %>
+
+        <section class="posters-block js-personal-recommendation">
+            <h2>
+                <span class="js-collection-header">
+                    <%- category.name %>
+                </span>
+            </h2>
+            <div class="carousel posters-large js-carousel">
+                <div class="viewport">
+                    <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>" style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">
+                        <% if (category.movies.length) { %>
+
+                        <% category.movies.forEach(function (movie) { %>
+                        <li class="poster-badge poster-badge_subscription">
+                            <a href="<%- movie.url %>" class="item-content-wrapper">
+                                <div class="image" data-caption="Смотреть бесплатно">
+                                    <img src="<%- movie.poster %>" alt="<%= movie.title %>">
+                                    <% if (movie.year) { %>
+                                    <span class="age-limit" data-value="<%- movie.year %>"></span>
+                                    <% } %>
+                                    <% if (movie.genre) { %>
+                                    <div class="badge">
+                                        <div class="badge__content" data-badge-content="<%- movie.genre %>"></div>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <span class="title">
+                                    <%= movie.title %>
+                                    <% if (movie.season && movie.episode) { %>
+                                    (<%- movie.season %> сезон <%- movie.episode %> серия)
+                                    <% } %>
+                                </span> </a>
+                        </li>
+                        <% }); %>
+
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="control-<%- i %>">
+                    <span class="control prev"></span> <span class="control next"></span>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        tns({
+                            items: 5,
+                            container: ".carousel-<%- i %>",
+                            nav: !1,
+                            autoplay: !1,
+                            autoplayButtonOutput: !1,
+                            loop: !0,
+                            controlsContainer: ".control-<%- i %>",
+                            mouseDrag: !0
+                        })
+                    });
+                </script>
+            </div>
+        </section>
+
+        <% }); %>
+
+        <% } %>
+
+        <% } } } %>
+
+        <% if (typeof news === 'object' && news.length) { %>
+        <section class="posters-block personal-blocks">
+            <div class="posters-inner-block js-posters-unfinished">
+                <h2>
+                    <a href="/<%- page.urls.content %>?tag=Новость">Новости кино</a>
+                </h2>
+                <ul class="gallery alternate-item-background thumbs-large steady-casing">
+                    <% news.slice(0,3).forEach(function (content) { %>
+                    <li>
+                        <a href="<%- content.url %>" class="item-content-wrapper">
+                            <span class="image" data-caption="Подробнее ...">
+                                <img src="<%- content.image %>" alt="<%= content.title %>">
+                            </span>
+                            <span class="title"><span><%- content.title %></span></span>
+                        </a>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </section>
+        <% } %>
+
+        <% if (page.seo) { %>
+        <div class="text-block-wrapper">
+            <h1 id="description-text"><%- page.title %></h1>
+            <div class="js-expand-block">
+                <div class="expandable-content">
+                    <p><%- page.seo %></p>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<% include includes/footer.ejs %>
+
+</body>
+</html>

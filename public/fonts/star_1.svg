@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<svg width="320" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+    <!-- Звёздочки-голосовалки (картинка из 20 звёзд: 10 серых и 10 красных).
+    Расположено в один ряд. Если сделать один ряд под другим - появляются баги при масштабировании в webkit-браузерах.
+    Размер каждой ячейки со звездочкой 16x14 -->
+    <defs>
+        <!-- Шаблон для создания звёздочки нужного цвета -->
+        <g id="star">
+            <path d="m7.47988,-0.00056l1.87,5.207l5.61,0.142l-4.454,3.359l1.597,5.295l-4.623,-3.131l-4.622,3.131l1.597,-5.295l-4.454,-3.359l5.61,-0.142l1.869,-5.207z"/>
+        </g>
+    </defs>
+
+    <!-- Незаполненное состояние -->
+    <use xlink:href="#star" x="0" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="16" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="32" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="48" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="64" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="80" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="96" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="112" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="128" y="0" fill="#c7c7cc"/>
+    <use xlink:href="#star" x="144" y="0" fill="#c7c7cc"/>
+
+    <!-- Заполненное/наведённое состояние -->
+    <use xlink:href="#star" x="160" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="176" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="192" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="208" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="224" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="240" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="256" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="272" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="288" y="0" fill="#ec174f"/>
+    <use xlink:href="#star" x="304" y="0" fill="#ec174f"/>
+</svg>

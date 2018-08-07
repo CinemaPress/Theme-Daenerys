@@ -1,0 +1,98 @@
+<header class="cinemapress-top js-menu-block">
+    <div class="cinemapress-top__inner">
+
+        <div class="cinemapress-top__logo">
+            <a class="cinemapress-top__logo-link" href="/">
+                <span class="cinemapress-top__logo-text"></span>
+                <img class="cinemapress-top__logo-image" src="/themes/daenerys/public/images/logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <span class="cinemapress-top__menu-toggle js-menu-toggle"
+                onclick="if (document.querySelector('.js-top-menu').classList.contains('top-menu_expanded')) {document.querySelector('.js-top-menu').classList.remove('top-menu_expanded');}else{document.querySelector('.js-top-menu').classList.add('top-menu_expanded');} if (this.classList.contains('cinemapress-top__menu-toggle_active')) {this.classList.remove('cinemapress-top__menu-toggle_active')} else {this.classList.add('cinemapress-top__menu-toggle_active')}">
+            <span class="cinemapress-top__menu-toggle-item"></span>
+            <span class="cinemapress-top__menu-toggle-item"></span>
+            <span class="cinemapress-top__menu-toggle-item"></span>
+        </span>
+
+        <nav class="top-menu cinemapress-top__menu js-top-menu">
+
+            <ul class="top-menu__list">
+                <li class="top-menu__list-item top-menu__list-item_expanding top-menu__list-item_expanded">
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" title="Новинки" class="top-menu__list-link">Новинки</a>
+                    <div class="top-menu__dropdown">
+                        <ul class="top-menu__sublist">
+                            <li class="top-menu__sublist-item">
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Фильмы-новинки</a>
+                            </li>
+                            <li class="top-menu__sublist-item">
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Сериалы-новинки</a>
+                            </li>
+                            <li class="top-menu__sublist-item">
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Мультфильмы-новинки</a>
+                            </li>
+                            <li class="top-menu__sublist-item">
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>?sorting=premiere-up" class="top-menu__sublist-link" title="">ТВ-новинки</a>
+                            </li>
+                            <li class="top-menu__sublist-item">
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Аниме-новинки</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="top-menu__list-item top-menu__list-item_expanding top-menu__list-item_expanded">
+                    <a title="Фильмы онлайн" class="top-menu__list-link js-menu-movies-link" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
+                    <div class="top-menu__dropdown top-menu__dropdown_two-cols" id="movies_submenu">
+                        <div class="top-menu__dropdown-col">
+                            <ul class="top-menu__sublist">
+                                <% page.urls.genres.slice(0,17).forEach(function(genre) { %>
+                                <li class="top-menu__sublist-item">
+                                    <a href="<%- genre.url %>" title="<%- genre.title %>" class="top-menu__sublist-link"><%- genre.title %></a>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                        <div class="top-menu__dropdown-col">
+                            <ul class="top-menu__sublist">
+                                <% page.urls.years.forEach(function(year) { %>
+                                <li class="top-menu__sublist-item">
+                                    <a class="top-menu__sublist-link" title="Смотреть фильмы <%- year.title %> года онлайн" href="<%- year.url %>">Фильмы <%- year.title %> года</a>
+                                </li>
+                                <% }); %>
+                            </ul>
+                            <ul class="top-menu__sublist">
+                                <% page.urls.countries.slice(0,6).forEach(function(country) { %>
+                                <li class="top-menu__sublist-item">
+                                    <a class="top-menu__sublist-link" title="<%- country.title %>" href="<%- country.url %>"><%- country.title %></a>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="top-menu__list-item">
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="top-menu__list-link js-tvchannels-link" title="Сериалы">Сериалы</a>
+                </li>
+                <li class="top-menu__list-item">
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>" class="top-menu__list-link js-tvchannels-link" title="Мультфильмы">Мультфильмы</a>
+                </li>
+                <li class="top-menu__list-item">
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>" class="top-menu__list-link js-tvchannels-link" title="ТВ-Передачи">ТВ-Передачи</a>
+                </li>
+                <li class="top-menu__list-item">
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>" class="top-menu__list-link js-tvchannels-link" title="Аниме">Аниме</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="js-top-search top-search cinemapress-top__search top-search_has-button">
+            <span class="top-search__subscription-button cinemapress-button medium js-disable-ads continueViewingBlock" style="display: none;" id="continueViewing">Продолжить просмотр</span>
+
+            <form method="get" action="/<%- page.urls.search %>/title" class="top-search__form cinemapress-textfield style_light size_medium button_search js-cinemapress-textfield">
+                <input class="top-search__input cinemapress-textfield__input js-cinemapress-textfield__input" name="q" type="search" placeholder="Поиск" autocomplete="off" maxlength="150">
+                <div class="top-search__button-wrapper cinemapress-textfield__button-wrapper">
+                    <button class="top-search__button cinemapress-textfield__button" type="submit">&gt;Искать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
