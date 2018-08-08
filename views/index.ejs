@@ -86,9 +86,9 @@
                                     <% if (movie.year) { %>
                                     <span class="age-limit" data-value="<%- movie.year %>"></span>
                                     <% } %>
-                                    <% if (movie.genre) { %>
+                                    <% if (movie.genre || movie.translate) { %>
                                     <div class="badge">
-                                        <div class="badge__content" data-badge-content="<%- movie.genre %>"></div>
+                                        <div class="badge__content" data-badge-content="<% if (movie.translate) { %><%- movie.translate %><% } else { %><%- movie.genre %><% } %>"></div>
                                     </div>
                                     <% } %>
                                 </div>
@@ -129,6 +129,30 @@
         <% } %>
 
         <% } } } %>
+
+        <% if (typeof page.pagination === 'object') { %>
+        <ul class="inner-nav pager">
+            <% if (page.pagination.prev.length) { %>
+            <% page.pagination.prev.forEach(function (prev) { %>
+            <li class="js-page">
+                <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
+            </li>
+            <% }); %>
+            <li class="js-no-url-page"><span>…</span></li>
+            <% } %>
+            <li class="js-page active">
+                <a href="javascript:void(0)"><%- page.pagination.current %></a>
+            </li>
+            <% if (page.pagination.next.length) { %>
+            <li class="js-no-url-page"><span>…</span></li>
+            <% page.pagination.next.forEach(function (next) { %>
+            <li class="js-page">
+                <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
+            </li>
+            <% }); %>
+            <% } %>
+        </ul>
+        <% } %>
 
         <% if (typeof news === 'object' && news.length) { %>
         <section class="posters-block personal-blocks">
