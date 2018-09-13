@@ -100,13 +100,13 @@
                     <% } %>
                 </aside>
                 <article class="col-main">
-                    <% if (page.player) { %>
                     <div class="player-block">
-                        <div class="player-area">
+                        <div id="cinemapress-player" class="player-area">
+                            <% if (page.player) { %>
                             <%- page.player %>
+                            <% } %>
                         </div>
                     </div>
-                    <% } %>
 
                     <% if (typeof page.adv === 'object' && page.adv.under) { %>
                     <div class="full-right-video1" style="text-align: center;">
