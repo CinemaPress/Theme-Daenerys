@@ -27,14 +27,18 @@
         <div class="promo wide">
             <div class="promo-content">
                 <ul>
-                    <li class="active" style="background: url('<%- movie.picture_big %>') center center no-repeat; background-size: cover;">
+                    <li class="active" style="background: url('<%- movie.picture %>') top center no-repeat; background-size: cover;">
                         <div class="button-wrapper">
-                            <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link">Смотреть онлайн</a>
-                            <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link">Смотреть трейлер</a>
-                            <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button">Скачать фильм</a>
+                            <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link"><%- page.l.more %>...</a>
+                            <% if (page.urls.movies.trailer) { %>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link"><%- page.l.trailer %></a>
+                            <% } %>
+                            <% if (page.urls.movies.download) { %>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button"><%- page.l.download %></a>
+                            <% } %>
                         </div>
                         <% if (movie.year) { %>
-                        <span class="age-limit" data-value="<%- movie.year %>"></span>
+                        <span class="age-limit" data-value="<%= movie.title %> (<%= movie.year %>)"></span>
                         <% } %>
                     </li>
                 </ul>
@@ -49,7 +53,7 @@
 
     <div class="teaser-plate">
         <div class="inner-container">
-            <span class="text">Смотри фильмы, сериалы и мультики без рекламы в Full HD</span>
+            <span class="text"><%- page.title %></span>
         </div>
     </div>
 
@@ -81,7 +85,7 @@
                         <% category.movies.forEach(function (movie) { %>
                         <li class="poster-badge poster-badge_subscription">
                             <a href="<%- movie.url %>" class="item-content-wrapper">
-                                <div class="image" data-caption="Смотреть бесплатно">
+                                <div class="image" data-caption="<%- page.l.online %>">
                                     <img src="<%- movie.poster %>" alt="<%= movie.title %>">
                                     <% if (movie.year) { %>
                                     <span class="age-limit" data-value="<%- movie.year %>"></span>
@@ -95,7 +99,7 @@
                                 <span class="title">
                                     <%= movie.title %>
                                     <% if (movie.season && movie.episode) { %>
-                                    (<%- movie.season %> сезон <%- movie.episode %> серия)
+                                    (<%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>)
                                     <% } %>
                                 </span> </a>
                         </li>
@@ -158,13 +162,13 @@
         <section class="posters-block personal-blocks">
             <div class="posters-inner-block js-posters-unfinished">
                 <h2>
-                    <a href="/<%- page.urls.content %>?tag=Новость">Новости кино</a>
+                    <a href="/<%- page.urls.content %>?tag=<%- page.l.news %>"><%- page.l.news %></a>
                 </h2>
                 <ul class="gallery alternate-item-background thumbs-large steady-casing">
                     <% news.slice(0,3).forEach(function (content) { %>
                     <li>
                         <a href="<%- content.url %>" class="item-content-wrapper">
-                            <span class="image" data-caption="Подробнее ...">
+                            <span class="image" data-caption="<%- page.l.more %> ...">
                                 <img src="<%- content.image %>" alt="<%= content.title %>">
                             </span>
                             <span class="title"><span><%- content.title %></span></span>
@@ -178,7 +182,7 @@
 
         <% if (page.seo) { %>
         <div class="text-block-wrapper">
-            <h1 id="description-text"><%- page.title %></h1>
+            <h1 id="description-text"><%- page.h1 %></h1>
             <div class="js-expand-block">
                 <div class="expandable-content">
                     <p><%- page.seo %></p>

@@ -1,7 +1,7 @@
 <div class="cinemapress-footer no-mobile js-footer">
     <div class="recently-footer-main">
         <div class="recentlyViewedBlock" style="display: none; padding: 20px 0;">
-            <div>Вы надавно смотрели:</div>
+            <div><%- page.l.watched %>:</div>
             <div id="recentlyViewed"></div>
         </div>
     </div>
@@ -12,27 +12,27 @@
     <% } %>
     <div class="cinemapress-footer-main">
         <div class="coll js-footer-watch">
-            <span class="title">Разделы</span>
+            <span class="title"><%- page.l.allCategories %></span>
             <ul>
-                <li><a href="/<%- page.urls.year %>">Все годы</a></li>
-                <li><a href="/<%- page.urls.genre %>">Все жанры</a></li>
-                <li><a href="/<%- page.urls.country %>">Все страны</a></li>
-                <li><a href="/<%- page.urls.actor %>">Все актеры</a></li>
-                <li><a href="/<%- page.urls.director %>">Все режиссеры</a></li>
+                <li><a href="/<%- page.urls.year %>"><%- page.l.allYears %></a></li>
+                <li><a href="/<%- page.urls.genre %>"><%- page.l.allGenres %></a></li>
+                <li><a href="/<%- page.urls.country %>"><%- page.l.allCountries %></a></li>
+                <li><a href="/<%- page.urls.actor %>"><%- page.l.allActors %></a></li>
+                <li><a href="/<%- page.urls.director %>"><%- page.l.allDirectors %></a></li>
             </ul>
         </div>
         <div class="col js-footer-about">
-            <span class="title">Годы</span>
+            <span class="title"><%- page.l.years %></span>
             <ul>
                 <% page.urls.years.slice(0,5).forEach(function(year) { %>
                 <li>
-                    <a href="<%- year.url %>" title="<%- year.title %>">Онлайн <%- year.title %> года</a>
+                    <a href="<%- year.url %>" title="<%- year.title %>"><%- page.l.online %> <%- year.title %></a>
                 </li>
                 <% }); %>
             </ul>
         </div>
         <div class="col js-footer-devices">
-            <span class="title">Жанры</span>
+            <span class="title"><%- page.l.genres %></span>
             <ul>
                 <% page.urls.genres.slice(0,5).forEach(function(genre) { %>
                 <li>
@@ -42,11 +42,11 @@
             </ul>
         </div>
         <div class="col js-footer-support">
-            <span class="title">Страны</span>
+            <span class="title"><%- page.l.countries %></span>
             <ul>
                 <% page.urls.countries.slice(0,5).forEach(function(country) { %>
                 <li>
-                    <a href="<%- country.url %>" title="<%- country.title %>">Из страны <%- country.title %></a>
+                    <a href="<%- country.url %>" title="<%- country.title %>"><%- page.l.country %> <%- country.title %></a>
                 </li>
                 <% }); %>
             </ul>
@@ -59,17 +59,17 @@
                 <div class="footer-follow social">
                     <% if (page.social.vk) { %>
                     <span class="vk">
-                        <a href="<%- page.social.vk %>" target="_blank">VK</a>
+                        <a href="<%- page.social.vk %>" target="_blank"><%- page.l.vk %></a>
                     </span>
                     <% } %>
                     <% if (page.social.facebook) { %>
                     <span class="facebook">
-                        <a href="<%- page.social.facebook %>" target="_blank">Facebook</a>
+                        <a href="<%- page.social.facebook %>" target="_blank"><%- page.l.facebook %></a>
                     </span>
                     <% } %>
                     <% if (page.social.twitter) { %>
                     <span class="twitter">
-                        <a href="<%- page.social.twitter %>" target="_blank">Twitter</a>
+                        <a href="<%- page.social.twitter %>" target="_blank"><%- page.l.twitter %></a>
                     </span>
                     <% } %>
                     <% if (page.social.gplus) { %>
@@ -79,12 +79,12 @@
                     <% } %>
                     <% if (page.social.youtube) { %>
                     <span class="youtube">
-                        <a href="<%- page.social.youtube %>" target="_blank">YouTube</a>
+                        <a href="<%- page.social.youtube %>" target="_blank"><%- page.l.youtube %></a>
                     </span>
                     <% } %>
                     <% if (page.social.instagram) { %>
                     <span class="instagram">
-                        <a href="<%- page.social.instagram %>" target="_blank">Instagram</a>
+                        <a href="<%- page.social.instagram %>" target="_blank"><%- page.l.instagram %></a>
                     </span>
                     <% } %>
                 </div>

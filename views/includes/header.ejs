@@ -4,7 +4,7 @@
         <div class="cinemapress-top__logo">
             <a class="cinemapress-top__logo-link" href="/">
                 <span class="cinemapress-top__logo-text"></span>
-                <img class="cinemapress-top__logo-image" src="/themes/daenerys/public/images/logo.png" alt="Logo">
+                <img class="cinemapress-top__logo-image" src="/themes/daenerys/public/images/logo.png?v=<%- page.ver %>" alt="Logo">
             </a>
         </div>
 
@@ -19,29 +19,29 @@
 
             <ul class="top-menu__list">
                 <li class="top-menu__list-item top-menu__list-item_expanding top-menu__list-item_expanded">
-                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" title="Новинки" class="top-menu__list-link">Новинки</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" title="<%- page.l.premieres %>" class="top-menu__list-link"><%- page.l.premieres %></a>
                     <div class="top-menu__dropdown">
                         <ul class="top-menu__sublist">
                             <li class="top-menu__sublist-item">
-                                <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Фильмы-новинки</a>
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="top-menu__sublist-link" title="<%- page.l.premieres %> (<%- page.l.movies %>)"><%- page.l.premieres %> (<%- page.l.movies %>)</a>
                             </li>
                             <li class="top-menu__sublist-item">
-                                <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Сериалы-новинки</a>
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=premiere-up" class="top-menu__sublist-link" title="<%- page.l.premieres %> (<%- page.l.series %>)"><%- page.l.premieres %> (<%- page.l.series %>)</a>
                             </li>
                             <li class="top-menu__sublist-item">
-                                <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Мультфильмы-новинки</a>
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>?sorting=premiere-up" class="top-menu__sublist-link" title="<%- page.l.premieres %> (<%- page.l.cartoons %>)"><%- page.l.premieres %> (<%- page.l.cartoons %>)</a>
                             </li>
                             <li class="top-menu__sublist-item">
-                                <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>?sorting=premiere-up" class="top-menu__sublist-link" title="">ТВ-новинки</a>
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>?sorting=premiere-up" class="top-menu__sublist-link" title="<%- page.l.premieres %> (<%- page.l.tv %>)"><%- page.l.premieres %> (<%- page.l.tv %>)</a>
                             </li>
                             <li class="top-menu__sublist-item">
-                                <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=premiere-up" class="top-menu__sublist-link" title="">Аниме-новинки</a>
+                                <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>?sorting=premiere-up" class="top-menu__sublist-link" title="<%- page.l.premieres %> (<%- page.l.anime %>)"><%- page.l.premieres %> (<%- page.l.anime %>)</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="top-menu__list-item top-menu__list-item_expanding top-menu__list-item_expanded">
-                    <a title="Фильмы онлайн" class="top-menu__list-link js-menu-movies-link" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
+                    <a title="<%- page.l.online %>" class="top-menu__list-link js-menu-movies-link" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.movies %></a>
                     <div class="top-menu__dropdown top-menu__dropdown_two-cols" id="movies_submenu">
                         <div class="top-menu__dropdown-col">
                             <ul class="top-menu__sublist">
@@ -56,7 +56,7 @@
                             <ul class="top-menu__sublist">
                                 <% page.urls.years.forEach(function(year) { %>
                                 <li class="top-menu__sublist-item">
-                                    <a class="top-menu__sublist-link" title="Смотреть фильмы <%- year.title %> года онлайн" href="<%- year.url %>">Фильмы <%- year.title %> года</a>
+                                    <a class="top-menu__sublist-link" title="<%- page.l.online %> <%- year.title %>" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
                                 </li>
                                 <% }); %>
                             </ul>
@@ -71,26 +71,26 @@
                     </div>
                 </li>
                 <li class="top-menu__list-item">
-                    <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="top-menu__list-link js-tvchannels-link" title="Сериалы">Сериалы</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="top-menu__list-link js-tvchannels-link" title="<%- page.l.series %>"><%- page.l.series %></a>
                 </li>
                 <li class="top-menu__list-item">
-                    <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>" class="top-menu__list-link js-tvchannels-link" title="Мультфильмы">Мультфильмы</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.mult %>" class="top-menu__list-link js-tvchannels-link" title="<%- page.l.cartoons %>"><%- page.l.cartoons %></a>
                 </li>
                 <li class="top-menu__list-item">
-                    <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>" class="top-menu__list-link js-tvchannels-link" title="ТВ-Передачи">ТВ-Передачи</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.tv %>" class="top-menu__list-link js-tvchannels-link" title="<%- page.l.tv %>"><%- page.l.tv %></a>
                 </li>
                 <li class="top-menu__list-item">
-                    <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>" class="top-menu__list-link js-tvchannels-link" title="Аниме">Аниме</a>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.anime %>" class="top-menu__list-link js-tvchannels-link" title="<%- page.l.anime %>"><%- page.l.anime %></a>
                 </li>
             </ul>
         </nav>
         <div class="js-top-search top-search cinemapress-top__search top-search_has-button">
-            <span class="top-search__subscription-button cinemapress-button medium js-disable-ads continueViewingBlock" style="display: none;" id="continueViewing">Продолжить просмотр</span>
+            <span class="top-search__subscription-button cinemapress-button medium js-disable-ads continueViewingBlock" style="display: none;" id="continueViewing"><%- page.l.continue %></span>
 
             <form method="get" action="/<%- page.urls.search %>/title" class="top-search__form cinemapress-textfield style_light size_medium button_search js-cinemapress-textfield">
-                <input class="top-search__input cinemapress-textfield__input js-cinemapress-textfield__input" name="q" type="search" placeholder="Поиск" autocomplete="off" maxlength="150">
+                <input class="top-search__input cinemapress-textfield__input js-cinemapress-textfield__input" name="q" type="search" placeholder="<%- page.l.search %>" autocomplete="off" maxlength="150">
                 <div class="top-search__button-wrapper cinemapress-textfield__button-wrapper">
-                    <button class="top-search__button cinemapress-textfield__button" type="submit">&gt;Искать</button>
+                    <button class="top-search__button cinemapress-textfield__button" type="submit">&gt;<%- page.l.search %></button>
                 </div>
             </form>
         </div>

@@ -20,10 +20,10 @@
 
         <section class="top-wrapper light">
             <ul class="breadcrumbs">
-                <li><a href="/">Главная</a></li>
+                <li><a href="/"><%- page.l.home %></a></li>
                 <li><%= page.title %></li>
             </ul>
-            <h1><%= page.title %></h1>
+            <h1><%- page.h1 %></h1>
         </section>
 
         <div class="content-body">
@@ -45,14 +45,18 @@
                 <div class="promo compact">
                     <div class="promo-content">
                         <ul>
-                            <li class="active" style="background: url('<%- movie.picture_big %>') center center no-repeat; background-size: cover;">
+                            <li class="active" style="background: url('<%- movie.picture %>') top center no-repeat; background-size: cover;">
                                 <div class="button-wrapper">
-                                    <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link">Смотреть онлайн</a>
-                                    <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link">Смотреть трейлер</a>
-                                    <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button">Скачать фильм</a>
+                                    <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link"><%- page.l.more %>...</a>
+                                    <% if (page.urls.movies.trailer) { %>
+                                    <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link"><%- page.l.trailer %></a>
+                                    <% } %>
+                                    <% if (page.urls.movies.download) { %>
+                                    <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button"><%- page.l.download %></a>
+                                    <% } %>
                                 </div>
                                 <% if (movie.year) { %>
-                                <span class="age-limit" data-value="<%- movie.year %>"></span>
+                                <span class="age-limit" data-value="<%= movie.title %> (<%= movie.year %>)"></span>
                                 <% } %>
                             </li>
                         </ul>
@@ -121,7 +125,7 @@
 
                                 <li>
                                     <a href="<%- movie.url %>" class="item-content-wrapper js-collection-content">
-                                        <span class="image" data-caption="Смотреть онлайн">
+                                        <span class="image" data-caption="<%- page.l.online %>">
                                             <img src="<%- movie.poster %>">
                                             <% if (movie.year) { %>
                                             <span class="age-limit" data-value="<%- movie.year %>"></span>
