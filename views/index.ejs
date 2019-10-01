@@ -75,6 +75,13 @@
             <h2>
                 <span class="js-collection-header">
                     <%- category.name %>
+                    <div class="randomMovieIndex">
+                        <div class="cinemapress-random-index"
+                             onclick="window.location.href='<%- category.url %>?random'"
+                             title="<%- page.l.random %>">
+                            <img src="/themes/daenerys/public/images/dice.svg" alt="<%- page.l.random %>">
+                        </div>
+                    </div>
                 </span>
             </h2>
             <div class="carousel posters-large js-carousel">

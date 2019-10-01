@@ -165,9 +165,18 @@
                         movies[type].forEach(function (category) { i=i+1; %>
 
             <section class="posters-block js-personal-recommendation">
-                <h2><span class="js-collection-header">
-                    <%- category.name %>
-                </span></h2>
+                <h2>
+                    <span class="js-collection-header">
+                        <%- category.name %>
+                        <div class="randomMovieRelated">
+                            <div class="cinemapress-random-related"
+                                 onclick="window.location.href='<%- category.url %>?random'"
+                                 title="<%- page.l.random %>">
+                                <img src="/themes/daenerys/public/images/dice.svg" alt="<%- page.l.random %>">
+                            </div>
+                        </div>
+                    </span>
+                </h2>
                 <div class="carousel posters-large js-carousel">
                     <div class="viewport">
                         <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>" style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">

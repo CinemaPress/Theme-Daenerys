@@ -1,10 +1,10 @@
 # Theme «daenerys»
 
-![Theme «daenerys» for CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Daenerys/master/screenshot.png "Theme «daenerys» for CinemaPress ACMS")
+![Theme «daenerys» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Daenerys/master/screenshot.png "Theme «daenerys» for CinemaPress")
 
-:art: Theme «daenerys» for CinemaPress ACMS
+:art: Theme «daenerys» for CinemaPress
 
-- [Daenerys.CinemaPress.org](http://Daenerys.CinemaPress.org/)
+- [Daenerys.CinemaPress.io](http://Daenerys.CinemaPress.io/)
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Daenerys/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Daenerys/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-daenerys/get/master.zip) or [Coding](https://coding.net/u/CinemaPress/p/Theme-Daenerys/git/archive/master.zip)
@@ -14,7 +14,7 @@
 
 ## Installation via terminal
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```
 
 ## Как установить?
@@ -25,5 +25,5 @@
 
 ## Установка через терминал
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```

@@ -97,6 +97,15 @@
             </div>
             <% } %>
 
+            <div class="randomMovieCategory">
+                <div class="cinemapress-random-category"
+                     onclick="window.location.href='<%- page.url %>?random'">
+                    <img src="/themes/daenerys/public/images/dice.svg" alt="<%- page.l.random %>">
+                    <span><%- page.l.lucky %></span>
+                    <small><%- page.l.random %></small>
+                </div>
+            </div>
+
             <div class="catalog-content js-catalog">
                 <div class="catalog-content-inner">
                     <% if (typeof page.sorting === 'object') { %>
