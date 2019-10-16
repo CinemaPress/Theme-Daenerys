@@ -87,7 +87,7 @@
             <section class="cols-wrapper">
                 <aside class="col-extra">
                     <figure class="poster js-poster">
-                        <img src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>" id="cinemapress-poster">
+                        <img src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>" data-cinemapress-poster="<%- movie.poster %>">
                     </figure>
 
                     <% if (typeof page.adv === 'object' && page.adv.left) { %>
