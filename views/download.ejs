@@ -152,6 +152,10 @@
                         <dt><%- page.l.actors %></dt>
                         <dd><%- movie.actors_url %></dd>
                         <% } %>
+                        <% if (movie.tags_url) { %>
+                        <dt><%- page.l.tags %></dt>
+                        <dd><%- movie.tags_url %></dd>
+                        <% } %>
                     </dl>
                 </article>
             </section>
@@ -167,9 +171,9 @@
                         <%- category.name %>
                         <div class="randomMovieRelated">
                             <div class="cinemapress-random-related"
-                                 onclick="window.location.href='<%- category.url %>?random'"
+                                 onclick="window.location.href='<%- (category.url.indexOf('?')+1 ? category.url + '&random' : category.url + '?random') %>'"
                                  title="<%- page.l.random %>">
-                                <img src="/themes/daenerys/public/images/dice.svg" alt="<%- page.l.random %>">
+                                <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%- page.l.random %>">
                             </div>
                         </div>
                     </span>
