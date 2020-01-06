@@ -2,20 +2,20 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <%- include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body class="catalog">
 
-<%- include includes/header.ejs %>
+<%- include('includes/header.ejs'); -%>
 
 <div class="page-wrapper">
     <div class="content-main">
 
         <% if (typeof page.adv === 'object' && page.adv.top) { %>
-        <div style="margin: 10px; text-align: center;">
-            <%- page.adv.top %>
-        </div>
+            <div style="margin: 10px; text-align: center;">
+                <%- page.adv.top %>
+            </div>
         <% } %>
 
         <section class="top-wrapper light">
@@ -25,33 +25,33 @@
             </ul>
             <h1><%- page.h1 %></h1>
             <% if (page.seo) { %>
-            <div class="text-block-wrapper">
-                <div class="js-expand-block">
-                    <div class="expandable-content">
-                        <%- page.seo %>
+                <div class="text-block-wrapper">
+                    <div class="js-expand-block">
+                        <div class="expandable-content">
+                            <%- page.seo %>
+                        </div>
                     </div>
                 </div>
-            </div>
             <% } %>
         </section>
 
         <div class="content-body">
             <% if (typeof categories === 'object' && categories.length) { %>
-            <div style="clear: both"></div>
-            <% categories.forEach(function (content) { %>
-            <div style="float:left;width:25%;">
-                <div style="margin:10px;padding:0;position:relative">
-                    <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
-                    <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
-                </div>
-            </div>
-            <% }); %>
+                <div style="clear: both"></div>
+                <% categories.forEach(function (content) { %>
+                    <div style="float:left;width:25%;">
+                        <div style="margin:10px;padding:0;position:relative">
+                            <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
+                            <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
+                        </div>
+                    </div>
+                <% }); %>
             <% } %>
         </div>
     </div>
 </div>
 
-<% include includes/footer.ejs %>
+<%- include('includes/footer.ejs'); -%>
 
 </body>
 </html>

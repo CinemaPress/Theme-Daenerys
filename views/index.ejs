@@ -2,52 +2,52 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <% include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body class="start">
 
-<% include includes/header.ejs %>
+<%- include('includes/header.ejs'); -%>
 
 <div class="page-wrapper">
 
     <% if (typeof slider === 'object' && slider.length) { %>
 
-    <div class="promo wide">
-        <div class="promo-content">
-            <div class="control-main">
-                <span class="control prev"></span> <span class="control next"></span>
-            </div>
-        </div>
-    </div>
-    <div class="carousel-main">
-
-        <% slider.forEach(function (movie) { %>
-
         <div class="promo wide">
             <div class="promo-content">
-                <ul>
-                    <li class="active" style="background: url('<%- movie.picture %>') top center no-repeat; background-size: cover;">
-                        <div class="button-wrapper">
-                            <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link"><%- page.l.more %>...</a>
-                            <% if (page.urls.movies.trailer) { %>
-                            <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link"><%- page.l.trailer %></a>
-                            <% } %>
-                            <% if (page.urls.movies.download) { %>
-                            <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button"><%- page.l.download %></a>
-                            <% } %>
-                        </div>
-                        <% if (movie.year) { %>
-                        <span class="age-limit" data-value="<%= movie.title %> (<%= movie.year %>)"></span>
-                        <% } %>
-                    </li>
-                </ul>
+                <div class="control-main">
+                    <span class="control prev"></span> <span class="control next"></span>
+                </div>
             </div>
         </div>
+        <div class="carousel-main">
 
-        <% }); %>
+            <% slider.forEach(function (movie) { %>
 
-    </div>
+                <div class="promo wide">
+                    <div class="promo-content">
+                        <ul>
+                            <li class="active" style="background: url('<%- movie.picture %>') top center no-repeat; background-size: cover;">
+                                <div class="button-wrapper">
+                                    <a href="<%- movie.url %>" class="large cinemapress-button js-promo-watch-link"><%- page.l.more %>...</a>
+                                    <% if (page.urls.movies.trailer) { %>
+                                        <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="large cinemapress-button dim js-promo-trailer-link"><%- page.l.trailer %></a>
+                                    <% } %>
+                                    <% if (page.urls.movies.download) { %>
+                                        <a href="<%- movie.url %>/<%- page.urls.movies.download %>" class="action-link bright large js-favourite-button"><%- page.l.download %></a>
+                                    <% } %>
+                                </div>
+                                <% if (movie.year) { %>
+                                    <span class="age-limit" data-value="<%= movie.title %> (<%= movie.year %>)"></span>
+                                <% } %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            <% }); %>
+
+        </div>
 
     <% } %>
 
@@ -60,147 +60,147 @@
     <div class="content-main">
 
         <% if (typeof page.adv === 'object' && page.adv.top) { %>
-        <div style="margin: 10px; text-align: center;">
-            <%- page.adv.top %>
-        </div>
+            <div style="margin: 10px; text-align: center;">
+                <%- page.adv.top %>
+            </div>
         <% } %>
 
         <% if (typeof index === 'object') { var i = 0; for (var type in index) { if (index.hasOwnProperty(type)) { %>
 
-        <% if (index[type].length) { %>
+            <% if (index[type].length) { %>
 
-        <% index[type].forEach(function (category) { i = i + 1; %>
+                <% index[type].forEach(function (category) { i = i + 1; %>
 
-        <section class="posters-block js-personal-recommendation">
-            <h2>
+                <section class="posters-block js-personal-recommendation">
+                    <h2>
                 <span class="js-collection-header">
                     <%- category.name %>
                     <div class="randomMovieIndex">
                         <div <% if (!category.url) { %>style="display:none"<% } %> class="cinemapress-random-index"
                              onclick="window.location.href='<%- (category.url && category.url.indexOf('?')+1 ? category.url + '&random' : category.url + '?random') %>'"
-                             title="<%- page.l.random %>">
-                            <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%- page.l.random %>">
+                             title="<%= page.l.random %>">
+                            <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
                         </div>
                     </div>
                 </span>
-            </h2>
-            <div class="carousel posters-large js-carousel">
-                <div class="viewport">
-                    <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>" style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">
-                        <% if (category.movies.length) { %>
+                    </h2>
+                    <div class="carousel posters-large js-carousel">
+                        <div class="viewport">
+                            <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>" style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">
+                                <% if (category.movies.length) { %>
 
-                        <% category.movies.forEach(function (movie) { %>
-                        <li class="poster-badge poster-badge_subscription">
-                            <a href="<%- movie.url %>" class="item-content-wrapper">
-                                <div class="image" data-caption="<%- page.l.online %>">
-                                    <img src="<%- movie.poster %>" alt="<%= movie.title %>">
-                                    <% if (movie.year) { %>
-                                    <span class="age-limit" data-value="<%- movie.year %>"></span>
-                                    <% } %>
-                                    <% if (movie.genre || movie.translate) { %>
-                                    <div class="badge">
-                                        <div class="badge__content" data-badge-content="<% if (movie.translate) { %><%- movie.translate %><% } else { %><%- movie.genre %><% } %>"></div>
-                                    </div>
-                                    <% } %>
-                                </div>
-                                <span class="title">
+                                    <% category.movies.forEach(function (movie) { %>
+                                        <li class="poster-badge poster-badge_subscription">
+                                            <a href="<%- movie.url %>" class="item-content-wrapper">
+                                                <div class="image" data-caption="<%- page.l.online %>">
+                                                    <img src="<%- movie.poster %>" alt="<%= movie.title %>">
+                                                    <% if (movie.year) { %>
+                                                        <span class="age-limit" data-value="<%- movie.year %>"></span>
+                                                    <% } %>
+                                                    <% if (movie.genre || movie.translate) { %>
+                                                        <div class="badge">
+                                                            <div class="badge__content" data-badge-content="<% if (movie.translate) { %><%- movie.translate %><% } else { %><%- movie.genre %><% } %>"></div>
+                                                        </div>
+                                                    <% } %>
+                                                </div>
+                                                <span class="title">
                                     <%= movie.title %>
-                                    <% if (movie.season && movie.episode) { %>
-                                    (<%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>)
-                                    <% } %>
-                                </span> </a>
-                        </li>
-                        <% }); %>
+                                                    <% if (movie.season && movie.episode) { %>
+                                                        (<%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>)
+                                                    <% } %>
+                                                </span> </a>
+                                        </li>
+                                    <% }); %>
 
-                        <% } %>
-                    </ul>
-                </div>
-                <div class="control-<%- i %>">
-                    <span class="control prev"></span> <span class="control next"></span>
-                </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        tns({
-                            items: 5,
-                            container: ".carousel-<%- i %>",
-                            nav: !1,
-                            autoplay: !1,
-                            autoplayButtonOutput: !1,
-                            loop: !0,
-                            controlsContainer: ".control-<%- i %>",
-                            mouseDrag: !0
-                        })
-                    });
-                </script>
-            </div>
-        </section>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <div class="control-<%- i %>">
+                            <span class="control prev"></span> <span class="control next"></span>
+                        </div>
+                        <script>
+                          document.addEventListener("DOMContentLoaded", function () {
+                            tns({
+                              items: 5,
+                              container: ".carousel-<%- i %>",
+                              nav: !1,
+                              autoplay: !1,
+                              autoplayButtonOutput: !1,
+                              loop: !0,
+                              controlsContainer: ".control-<%- i %>",
+                              mouseDrag: !0
+                            })
+                          });
+                        </script>
+                    </div>
+                </section>
 
-        <% }); %>
+                <% }); %>
 
-        <% } %>
+            <% } %>
 
         <% } } } %>
 
         <% if (typeof page.pagination === 'object') { %>
-        <ul class="inner-nav pager">
-            <% if (page.pagination.prev.length) { %>
-            <% page.pagination.prev.forEach(function (prev) { %>
-            <li class="js-page">
-                <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
-            </li>
-            <% }); %>
-            <li class="js-no-url-page"><span>…</span></li>
-            <% } %>
-            <li class="js-page active">
-                <a href="javascript:void(0)"><%- page.pagination.current %></a>
-            </li>
-            <% if (page.pagination.next.length) { %>
-            <li class="js-no-url-page"><span>…</span></li>
-            <% page.pagination.next.forEach(function (next) { %>
-            <li class="js-page">
-                <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
-            </li>
-            <% }); %>
-            <% } %>
-        </ul>
+            <ul class="inner-nav pager">
+                <% if (page.pagination.prev.length) { %>
+                    <% page.pagination.prev.forEach(function (prev) { %>
+                        <li class="js-page">
+                            <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
+                        </li>
+                    <% }); %>
+                    <li class="js-no-url-page"><span>…</span></li>
+                <% } %>
+                <li class="js-page active">
+                    <a href="javascript:void(0)"><%- page.pagination.current %></a>
+                </li>
+                <% if (page.pagination.next.length) { %>
+                    <li class="js-no-url-page"><span>…</span></li>
+                    <% page.pagination.next.forEach(function (next) { %>
+                        <li class="js-page">
+                            <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
+                        </li>
+                    <% }); %>
+                <% } %>
+            </ul>
         <% } %>
 
         <% if (typeof news === 'object' && news.length) { %>
-        <section class="posters-block personal-blocks">
-            <div class="posters-inner-block js-posters-unfinished">
-                <h2>
-                    <a href="/<%- page.urls.content %>?tag=<%- page.l.news %>"><%- page.l.news %></a>
-                </h2>
-                <ul class="gallery alternate-item-background thumbs-large steady-casing">
-                    <% news.slice(0,3).forEach(function (content) { %>
-                    <li>
-                        <a href="<%- content.url %>" class="item-content-wrapper">
+            <section class="posters-block personal-blocks">
+                <div class="posters-inner-block js-posters-unfinished">
+                    <h2>
+                        <a href="/<%- page.urls.content %>?tag=<%- page.l.news %>"><%- page.l.news %></a>
+                    </h2>
+                    <ul class="gallery alternate-item-background thumbs-large steady-casing">
+                        <% news.slice(0,3).forEach(function (content) { %>
+                            <li>
+                                <a href="<%- content.url %>" class="item-content-wrapper">
                             <span class="image" data-caption="<%- page.l.more %> ...">
                                 <img src="<%- content.image %>" alt="<%= content.title %>">
                             </span>
-                            <span class="title"><span><%- content.title %></span></span>
-                        </a>
-                    </li>
-                    <% }); %>
-                </ul>
-            </div>
-        </section>
+                                    <span class="title"><span><%- content.title %></span></span>
+                                </a>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </section>
         <% } %>
 
         <% if (page.seo) { %>
-        <div class="text-block-wrapper">
-            <h1 id="description-text"><%- page.h1 %></h1>
-            <div class="js-expand-block">
-                <div class="expandable-content">
-                    <p><%- page.seo %></p>
+            <div class="text-block-wrapper">
+                <h1 id="description-text"><%- page.h1 %></h1>
+                <div class="js-expand-block">
+                    <div class="expandable-content">
+                        <p><%- page.seo %></p>
+                    </div>
                 </div>
             </div>
-        </div>
         <% } %>
     </div>
 </div>
 
-<% include includes/footer.ejs %>
+<%- include('includes/footer.ejs'); -%>
 
 </body>
 </html>

@@ -1,0 +1,77 @@
+<aside class="col-extra">
+
+    <ul class="platforms">
+        <li class="android"><a href="javascript:void(0)">Android</a></li>
+        <li class="ios"><a href="javascript:void(0)">iPhone / iPad</a></li>
+        <li class="smarttv"><a href="javascript:void(0)">Smart TV</a></li>
+    </ul>
+
+    <% if (typeof contents === 'object' && contents.length) { %>
+        <h2>
+            <a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.mentions %></a>
+        </h2>
+        <ul class="related-links">
+            <% contents.forEach(function (content) { %>
+                <li><a href="<%- content.url %>"><%= content.title %></a></li>
+            <% }); %>
+        </ul>
+    <% } %>
+
+    <% if (page.urls.movies.trailer) { %>
+        <h2><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><%- page.l.trailer %></a></h2>
+        <ul class="gallery trailers-small">
+            <li>
+                <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="item-content-wrapper js-trailers-link" style="background: url('<%- movie.poster %>'); background-size: cover;">
+                    <span class="image"></span>
+                </a>
+            </li>
+        </ul>
+    <% } %>
+
+    <% if (typeof recent === 'object' && recent.length) { %>
+        <h2>
+            <a href="javascript:void(0)"><%- page.l.comments %></a>
+        </h2>
+        <% recent.forEach(function (comment) { %>
+            <div>
+                <div class="cinemapress-comment">
+                    <div class="cinemapress-comment-head">
+                        <div class="cinemapress-comment-head-avatar">
+                            <img src="<%- comment.avatar %>" alt="<%= comment.user %>">
+                        </div>
+                        <div class="cinemapress-comment-head-meta">
+                            <div class="cinemapress-comment-head-meta-title">
+                                <a href="<%- comment.url %>" title="<%= comment.title %>"><%= comment.title %></a>
+                            </div>
+                            <div class="cinemapress-comment-user" data-comment-id="<%- comment.id %>">
+                                <div class="cinemapress-comment-user-name">
+                                    <%- comment.user %>
+                                </div><div class="cinemapress-comment-user-said">
+                                    <%- page.l.said %>
+                                </div><div class="cinemapress-comment-user-date">
+                                    <%- comment.date %>
+                                </div><div class="cinemapress-comment-user-link">
+                                    <a href="<%- comment.url %>#c<%- comment.id %>" title="<%= comment.title %>">#</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cinemapress-comment-bg cinemapress-comment-radius">
+                        <%- comment.comment %>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+
+    <% if (typeof soon === 'object' && soon.length) { %>
+        <h2>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up"><%- page.l.soon %></a>
+        </h2>
+        <ul class="related-links">
+            <% soon.forEach(function (movie) { %>
+                <li><a href="<%- movie.url %>"><%= movie.title %></a></li>
+            <% }); %>
+        </ul>
+    <% } %>
+</aside>

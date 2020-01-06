@@ -6,9 +6,9 @@
         </div>
     </div>
     <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
-    <div class="recently-footer-main">
-        <%- page.adv.bottom %>
-    </div>
+        <div class="recently-footer-main">
+            <%- page.adv.bottom %>
+        </div>
     <% } %>
     <div class="cinemapress-footer-main">
         <div class="coll js-footer-watch">
@@ -25,9 +25,9 @@
             <span class="title"><%- page.l.years %></span>
             <ul>
                 <% page.urls.years.slice(0,5).forEach(function(year) { %>
-                <li>
-                    <a href="<%- year.url %>" title="<%- year.title %>"><%- page.l.online %> <%- year.title %></a>
-                </li>
+                    <li>
+                        <a href="<%- year.url %>" title="<%= year.title %>"><%- page.l.online %> <%- year.title %></a>
+                    </li>
                 <% }); %>
             </ul>
         </div>
@@ -35,9 +35,9 @@
             <span class="title"><%- page.l.genres %></span>
             <ul>
                 <% page.urls.genres.slice(0,5).forEach(function(genre) { %>
-                <li>
-                    <a href="<%- genre.url %>" title="<%- genre.title %>"><%- genre.title %></a>
-                </li>
+                    <li>
+                        <a href="<%- genre.url %>" title="<%= genre.title %>"><%- genre.title %></a>
+                    </li>
                 <% }); %>
             </ul>
         </div>
@@ -45,9 +45,9 @@
             <span class="title"><%- page.l.countries %></span>
             <ul>
                 <% page.urls.countries.slice(0,5).forEach(function(country) { %>
-                <li>
-                    <a href="<%- country.url %>" title="<%- country.title %>"><%- page.l.country %> <%- country.title %></a>
-                </li>
+                    <li>
+                        <a href="<%- country.url %>" title="<%= country.title %>"><%- page.l.country %> <%- country.title %></a>
+                    </li>
                 <% }); %>
             </ul>
         </div>
@@ -56,38 +56,38 @@
         <div class="cinemapress-footer-bottom-inner">
             <div class="social js-footer-social">
                 <% if (page.social) { %>
-                <div class="footer-follow social">
-                    <% if (page.social.vk) { %>
-                    <span class="vk">
+                    <div class="footer-follow social">
+                        <% if (page.social.vk) { %>
+                            <span class="vk">
                         <a href="<%- page.social.vk %>" target="_blank"><%- page.l.vk %></a>
                     </span>
-                    <% } %>
-                    <% if (page.social.facebook) { %>
-                    <span class="facebook">
+                        <% } %>
+                        <% if (page.social.facebook) { %>
+                            <span class="facebook">
                         <a href="<%- page.social.facebook %>" target="_blank"><%- page.l.facebook %></a>
                     </span>
-                    <% } %>
-                    <% if (page.social.telegram) { %>
-                        <span class="telegram">
+                        <% } %>
+                        <% if (page.social.telegram) { %>
+                            <span class="telegram">
                             <a href="<%- page.social.telegram %>" target="_blank"><%- page.l.telegram %></a>
                         </span>
-                    <% } %>
-                    <% if (page.social.twitter) { %>
-                    <span class="twitter">
+                        <% } %>
+                        <% if (page.social.twitter) { %>
+                            <span class="twitter">
                         <a href="<%- page.social.twitter %>" target="_blank"><%- page.l.twitter %></a>
                     </span>
-                    <% } %>
-                    <% if (page.social.youtube) { %>
-                    <span class="youtube">
+                        <% } %>
+                        <% if (page.social.youtube) { %>
+                            <span class="youtube">
                         <a href="<%- page.social.youtube %>" target="_blank"><%- page.l.youtube %></a>
                     </span>
-                    <% } %>
-                    <% if (page.social.instagram) { %>
-                    <span class="instagram">
+                        <% } %>
+                        <% if (page.social.instagram) { %>
+                            <span class="instagram">
                         <a href="<%- page.social.instagram %>" target="_blank"><%- page.l.instagram %></a>
                     </span>
-                    <% } %>
-                </div>
+                        <% } %>
+                    </div>
                 <% } %>
                 <span>&nbsp;&nbsp;&nbsp;</span><span id="mylo">Activate JS</span><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script>
             </div>
