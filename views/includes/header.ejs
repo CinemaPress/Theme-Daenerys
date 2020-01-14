@@ -85,7 +85,7 @@
             </ul>
         </nav>
         <div class="js-top-search top-search cinemapress-top__search top-search_has-button">
-            <span class="randomMovieMenu"><a href="/?random" class="top-search__subscription-button cinemapress-button medium js-disable-ads"><%- page.l.lucky %></a></span>
+            <span class="randomMovieMenu"><a href="/?random=<%- Math.random() %>" class="top-search__subscription-button cinemapress-button medium js-disable-ads"><%- page.l.lucky %></a></span>
             <span class="top-search__subscription-button cinemapress-button medium js-disable-ads continueViewingBlock" style="display: none;" id="continueViewing"><%- page.l.continue %></span>
 
             <form method="get" action="/<%- page.urls.search %>" class="top-search__form cinemapress-textfield style_light size_medium button_search js-cinemapress-textfield">
