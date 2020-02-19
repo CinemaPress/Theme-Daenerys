@@ -89,7 +89,7 @@
                             <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>" style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">
                                 <% if (category.movies.length) { %>
 
-                                    <% category.movies.forEach(function (movie) { %>
+                                    <% category.movies.forEach(function (movie) { if (movie.hide) { return; } %>
                                         <li class="poster-badge poster-badge_subscription">
                                             <a href="<%- movie.url %>" class="item-content-wrapper">
                                                 <div class="image" data-caption="<%- page.l.online %>">
@@ -103,8 +103,7 @@
                                                         </div>
                                                     <% } %>
                                                 </div>
-                                                <span class="title">
-                                    <%= movie.title %>
+                                                <span class="title"><%= movie.title %>
                                                     <% if (movie.season && movie.episode) { %>
                                                         (<%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>)
                                                     <% } %>
