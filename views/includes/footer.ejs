@@ -24,7 +24,7 @@
         <div class="col js-footer-about">
             <span class="title"><%- page.l.years %></span>
             <ul>
-                <% page.urls.years.slice(0,5).forEach(function(year) { %>
+                <% page.urls.years.slice(0, 5).forEach(function(year) { %>
                     <li>
                         <a href="<%- year.url %>" title="<%= year.title %>"><%- page.l.online %> <%- year.title %></a>
                     </li>
@@ -34,7 +34,7 @@
         <div class="col js-footer-devices">
             <span class="title"><%- page.l.genres %></span>
             <ul>
-                <% page.urls.genres.slice(0,5).forEach(function(genre) { %>
+                <% page.urls.genres.slice(0, 5).forEach(function(genre) { %>
                     <li>
                         <a href="<%- genre.url %>" title="<%= genre.title %>"><%- genre.title %></a>
                     </li>
@@ -44,9 +44,10 @@
         <div class="col js-footer-support">
             <span class="title"><%- page.l.countries %></span>
             <ul>
-                <% page.urls.countries.slice(0,5).forEach(function(country) { %>
+                <% page.urls.countries.slice(0, 5).forEach(function(country) { %>
                     <li>
-                        <a href="<%- country.url %>" title="<%= country.title %>"><%- page.l.country %> <%- country.title %></a>
+                        <a href="<%- country.url %>"
+                           title="<%= country.title %>"><%- page.l.country %> <%- country.title %></a>
                     </li>
                 <% }); %>
             </ul>
@@ -89,15 +90,46 @@
                         <% } %>
                     </div>
                 <% } %>
-                <span>&nbsp;&nbsp;&nbsp;</span><span id="mylo">Activate JS</span><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script>
+                <span>&nbsp;&nbsp;&nbsp;</span><span id="mylo">Activate JS</span>
+                <script>(function(d, i, l, r) {
+                    d.getElementById(i).innerHTML = l + '@' + r;
+                  })(window.document, 'mylo', '<%- page.email.split('@')[0] %>', '<%- page.email.split('@')[1] %>');</script>
             </div>
             <div class="copyright">
-                <span> &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.io" target="_blank">CinemaPress</a></span>
+                <span> &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.io"
+                                                                           target="_blank">CinemaPress</a></span>
             </div>
         </div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.3/min/tiny-slider.js"></script>
-<script>document.addEventListener("DOMContentLoaded",function(){if(document.querySelector('.carousel-main')){tns({container:".carousel-main",mode:"gallery",nav:!1,autoplay:!0,autoplayButtonOutput:!1,loop:!0,controlsContainer:".control-main",mouseDrag:!0})}});document.addEventListener("DOMContentLoaded", function () {if(document.querySelector('.carousel-category')){tns({container: ".carousel-category", mode: "gallery", nav: !1, autoplay: !0, autoplayButtonOutput: !1, loop: !0, controlsContainer: ".control-category", mouseDrag: !0})}});</script>
+<script>document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.carousel-main')) {
+      tns({
+        container: '.carousel-main',
+        mode: 'gallery',
+        nav: !1,
+        autoplay: !0,
+        autoplayButtonOutput: !1,
+        loop: !0,
+        controlsContainer: '.control-main',
+        mouseDrag: !0
+      });
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.carousel-category')) {
+      tns({
+        container: '.carousel-category',
+        mode: 'gallery',
+        nav: !1,
+        autoplay: !0,
+        autoplayButtonOutput: !1,
+        loop: !0,
+        controlsContainer: '.control-category',
+        mouseDrag: !0
+      });
+    }
+  });</script>
 <%- page.codes.footer %>

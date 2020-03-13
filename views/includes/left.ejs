@@ -21,7 +21,8 @@
         <h2><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><%- page.l.trailer %></a></h2>
         <ul class="gallery trailers-small">
             <li>
-                <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="item-content-wrapper js-trailers-link" style="background: url('<%- movie.poster %>'); background-size: cover;">
+                <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" class="item-content-wrapper js-trailers-link"
+                   style="background: url('<%- movie.poster %>'); background-size: cover;">
                     <span class="image"></span>
                 </a>
             </li>
@@ -46,11 +47,14 @@
                             <div class="cinemapress-comment-user" data-comment-id="<%- comment.id %>">
                                 <div class="cinemapress-comment-user-name">
                                     <%- comment.user %>
-                                </div><div class="cinemapress-comment-user-said">
+                                </div>
+                                <div class="cinemapress-comment-user-said">
                                     <%- page.l.said %>
-                                </div><div class="cinemapress-comment-user-date">
+                                </div>
+                                <div class="cinemapress-comment-user-date">
                                     <%- comment.date %>
-                                </div><div class="cinemapress-comment-user-link">
+                                </div>
+                                <div class="cinemapress-comment-user-link">
                                     <a href="<%- comment.url %>#c<%- comment.id %>" title="<%= comment.title %>">#</a>
                                 </div>
                             </div>
