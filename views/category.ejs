@@ -75,7 +75,7 @@
 
             <% } %>
 
-            <% if (typeof content === 'object') { %>
+            <% if (typeof content === 'object' && page.current_page === 1) { %>
                 <div class="text-block-wrapper">
                     <div class="js-expand-block">
                         <div class="expandable-content">
@@ -193,7 +193,7 @@
 
             <% } %>
 
-            <% if (typeof content === 'object') { %>
+            <% if (typeof content === 'object' && page.current_page === 1) { %>
                 <% if (page.comments) { %>
                     <div style="padding: 10px;">
                         <%- page.comments %>
