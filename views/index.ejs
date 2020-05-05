@@ -94,7 +94,7 @@
                         <div class="viewport">
                             <ul class="gallery posters-large js-collection-block js-popups-block carousel-<%- i %>"
                                 style="transition: all 0s ease; -webkit-transition: all 0s ease; -webkit-transform: translate3d(0px, 0, 0);">
-                                <% if (category.movies.length) { %>
+                                <% if (typeof category === 'object' && category.movies && category.movies.length) { %>
 
                                     <% category.movies.forEach(function (movie) { if (movie.hide) {
                                         return;
