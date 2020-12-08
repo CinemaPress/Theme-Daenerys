@@ -45,8 +45,7 @@
                         <div class="promo compact">
                             <div class="promo-content">
                                 <ul>
-                                    <li class="active"
-                                        style="background: url('<%- movie.picture %>') top center no-repeat; background-size: cover;">
+                                    <li class="active" style="background: url('<%- movie.picture_min %>') top center no-repeat; background-size: cover;" data-cinemapress-bg-src="<%- movie.picture %>">
                                         <div class="button-wrapper">
                                             <a href="<%- movie.url %>"
                                                class="large cinemapress-button js-promo-watch-link"><%- page.l.more %>
@@ -147,7 +146,7 @@
                                             <a href="<%- movie.url %>"
                                                class="item-content-wrapper js-collection-content">
                                         <span class="image" data-caption="<%- page.l.online %>">
-                                            <img src="<%- movie.poster %>">
+                                            <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>">
                                             <% if (movie.year) { %>
                                                 <span class="age-limit" data-value="<%- movie.year %>"></span>
                                             <% } %>
