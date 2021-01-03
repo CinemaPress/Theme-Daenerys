@@ -92,7 +92,7 @@
             <section class="cols-wrapper">
                 <aside class="col-extra">
                     <figure class="poster js-poster">
-                        <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>"
+                        <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>"
                              data-cinemapress-poster="<%- movie.poster %>">
                     </figure>
                     <span class="js-dynamic-button-wrapper js-type-button action-link-wrapper watchLaterBlock"
@@ -199,7 +199,7 @@
                                     <li class="poster-badge poster-badge_subscription">
                                         <a href="<%- movie.url %>" class="item-content-wrapper">
                                             <div class="image" data-caption="<%- page.l.online %>">
-                                                <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %>">
+                                                <img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= movie.title %>">
                                                 <% if (movie.year) { %>
                                                     <span class="age-limit" data-value="<%- movie.year %>"></span>
                                                 <% } %>
