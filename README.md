@@ -1,10 +1,10 @@
 # Theme «daenerys»
 
-![Theme «daenerys» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Daenerys/master/screenshot.png "Theme «daenerys» for CinemaPress")
+![Theme «daenerys» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Daenerys/master/screenshot.png)
 
 :art: Theme «daenerys» for CinemaPress
 
-- [Daenerys.CinemaPress.io](http://Daenerys.CinemaPress.io/)
+- `«daenerys»`
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Daenerys/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Daenerys/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-daenerys/get/master.zip)
